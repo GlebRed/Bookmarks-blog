@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreBookmarksRequest;
 use Illuminate\Http\Request;
 use App\Bookmark;
 
@@ -33,7 +34,7 @@ class BookmarkController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreBookmarksRequest $request)
     {
       $bookmark = new Bookmark();
       $bookmark->title = $request->title;
