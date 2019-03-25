@@ -12,7 +12,10 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+
+  $bookmarks = \App\Bookmark::all();
+
+  return view('welcome')->with('bookmarks', $bookmarks);
 });
 
 Auth::routes();
