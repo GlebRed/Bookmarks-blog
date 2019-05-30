@@ -2,7 +2,7 @@
 
 ### Laravel PHP framework-based simple application
 
-This is a repository with the code we write during my Udemy Crash Course into Web Frameworks 2019.
+This is a repository with the code we write during my Crash Course into Web Frameworks 2019.
 
 Each commit corresponds to the code we add during certain development stage.
 
