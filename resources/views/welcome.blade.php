@@ -19,7 +19,7 @@
                             <a href="{{ $bookmark->url }}">{{ $bookmark->title }}</a>
                         </td>
                         <td>
-                            <form action="{{ url('project/'.$bookmark->id.'/edit') }}" method="GET">
+                            <form action="{{ url('bookmark/'.$bookmark->id.'/edit') }}" method="GET">
                                 {{ csrf_field() }}
                                 <button type="submit" class="btn btn-warning">
                                     <i class="fa fa-btn fa-pencil"></i>Edit
@@ -27,7 +27,7 @@
                             </form>
                         </td>
                         <td>
-                            <form class="delete-project" action="{{ url('admin/all-projects/'.$bookmark->id.'/delete') }}"
+                            <form class="delete-project" action="{{ url('bookmark/'.$bookmark->id.'/delete') }}"
                                   method="POST">
                                 {{ csrf_field() }}
                                 {{ method_field('DELETE') }}

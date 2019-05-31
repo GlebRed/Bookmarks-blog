@@ -17,15 +17,17 @@ class StoreBookmarksRequest extends FormRequest
     }
 
     /**
-     * Get the validation rules that apply to the request.
+     * Get the validation rules that apply to the request.r
      *
      * @return array
      */
     public function rules()
     {
+      
+
       return [
           'title' => 'required|max:255',
-          'url' => 'required|url|unique:bookmarks|max:255',
+          'url' => 'required|url|unique:bookmarks,url,'.$this->id.',id',
           'description' => 'required|max:255',
       ];
     }

@@ -5,8 +5,8 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
 
-            <h1>Add a bookmark</h1>
-            <form action="{{url('submit')}}" method="post">
+            <h1>Edit a bookmark</h1>
+            <form action="{{url('bookmark/'.$bookmark->id.'/edit')}}" method="post">
                 @if ($errors->any())
                     <div class="alert alert-danger" role="alert">
                         Please fix the following errors
