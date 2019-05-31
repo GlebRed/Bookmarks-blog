@@ -32,6 +32,8 @@ Run `composer install` command in the root folder of the project.
 
 `.env.example` and change name to `.env`
 
+`php artisan key:generate` to generate application key
+
 ##### 3. Import the database scheme
 
 Run `php artisan migrate` to create database tables
