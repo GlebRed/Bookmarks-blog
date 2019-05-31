@@ -22,8 +22,11 @@ Route::group(['middleware' => 'auth'], function () {
 
   Route::get('submit', 'BookmarkController@index');
   Route::post('submit', 'BookmarkController@store');
+
+  // Our edit and delete routes
   Route::get('bookmark/{id}/edit', 'BookmarkController@edit');
   Route::post('bookmark/{id}/edit', 'BookmarkController@update');
+  Route::delete('bookmark/{id}/delete', 'BookmarkController@destroy');
 
 
 

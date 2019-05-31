@@ -17,16 +17,17 @@ class StoreBookmarksRequest extends FormRequest
     }
 
     /**
-     * Get the validation rules that apply to the request.r
+     * Get the validation rules that apply to the request.
      *
      * @return array
      */
     public function rules()
     {
-      
+
 
       return [
           'title' => 'required|max:255',
+          //The following parameter to the unique rule will skip that unique if we're updating a record
           'url' => 'required|url|unique:bookmarks,url,'.$this->id.',id',
           'description' => 'required|max:255',
       ];

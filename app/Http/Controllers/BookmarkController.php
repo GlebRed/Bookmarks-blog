@@ -65,7 +65,13 @@ class BookmarkController extends Controller
      */
     public function edit($id)
     {
-        //
+        // Find the bookmark
+        $bookmark = Bookmark::find($id);
+
+
+        // Show edit view, but pass our bookmark object as a parameter
+        return view('edit')->with('bookmark', $bookmark);
+
     }
 
     /**
@@ -75,9 +81,16 @@ class BookmarkController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreBookmarksRequest $request, $id)
     {
-        //
+        $bookmark = Bookmark::find($id);
+        $bookmark->title = $request->title;
+        $bookmark->url = $request->url;
+        $bookmark->description = $request->description;
+
+        $bookmark->save();
+
+        return redirect('/');
     }
 
     /**
@@ -88,6 +101,11 @@ class BookmarkController extends Controller
      */
     public function destroy($id)
     {
-        //
+
+      $bookmark = Bookmark::find($id);
+
+      $bookmark->delete();
+
+      return redirect('/');
     }
 }

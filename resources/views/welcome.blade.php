@@ -6,6 +6,12 @@
                 My bookmarks
             </h1>
 
+            <div class="col col-4">
+                <a href="{{route('home')}}" class="btn btn-success">
+                    <i class="fa fa-btn fa-plus"></i> Add new
+                </a>
+            </div>
+
             <table class="table table-striped">
                 <thead>
                 <th>Title</th>
@@ -17,9 +23,12 @@
                     <tr>
                         <td>
                             <a href="{{ $bookmark->url }}">{{ $bookmark->title }}</a>
+                            <p>{{ $bookmark->description }}</p>
                         </td>
                         <td>
+{{--                            Bookmark id is a route parameter--}}
                             <form action="{{ url('bookmark/'.$bookmark->id.'/edit') }}" method="GET">
+{{--                                This is csfr field--}}
                                 {{ csrf_field() }}
                                 <button type="submit" class="btn btn-warning">
                                     <i class="fa fa-btn fa-pencil"></i>Edit
@@ -29,13 +38,14 @@
                         <td>
                             <form class="delete-project" action="{{ url('bookmark/'.$bookmark->id.'/delete') }}"
                                   method="POST">
+{{--                                This is csfr field--}}
                                 {{ csrf_field() }}
                                 {{ method_field('DELETE') }}
-
+                                <button type="submit" id="delete" class="btn btn-danger">
+                                    <i class="fa fa-btn fa-trash"></i>Delete
+                                </button>
                             </form>
-                            <button type="submit" id="delete" class="btn btn-danger">
-                                <i class="fa fa-btn fa-trash"></i>Delete
-                            </button>
+
                         </td>
                     </tr>
                 @endforeach
